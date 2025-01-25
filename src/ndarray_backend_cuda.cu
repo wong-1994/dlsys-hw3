@@ -299,42 +299,7 @@ void ScalarAdd(const CudaArray& a, scalar_t val, CudaArray* out) {
  * functions (however you want to do so, as long as the functions match the proper)
  * signatures above.
  */
-
-// template <typename Func>
-// __global__ void EwiseFuncKernel(const scalar_t* a, const scalar_t* b, scalar_t* out, size_t size, Func func) {
-//   size_t gid = blockIdx.x * blockDim.x + threadIdx.x;
-//   if (gid < size) out[gid] = func(a[gid], b[gid]); 
-// }
-
-// template <typename Func>
-// void EwiseFunc(const CudaArray& a, const CudaArray& b, CudaArray* out, Func func) {
-//   CudaDims dim = CudaOneDim(out->size);
-//   EwiseFuncKernel<<<dim.grid, dim.block>>>(a.ptr, b.ptr, out->ptr, out->size, func);  
-// }
-
-// template <typename Func>
-// __global__ void EwiseFuncKernel(const scalar_t* a, scalar_t* out, size_t size, Func func) {
-//   size_t gid = blockIdx.x * blockDim.x + threadIdx.x;
-//   if (gid < size) out[gid] = func(a[gid]); 
-// }
-
-// template <typename Func>
-// void EwiseFunc(const CudaArray& a, CudaArray* out, Func func) {
-//   CudaDims dim = CudaOneDim(out->size);
-//   EwiseFuncKernel<<<dim.grid, dim.block>>>(a.ptr, out->ptr, out->size, func);  
-// }
-
-// template <typename Func>
-// __global__ void ScalarFuncKernel(const scalar_t* a, scalar_t val, scalar_t* out, size_t size, Func func) {
-//   size_t gid = blockIdx.x * blockDim.x + threadIdx.x;
-//   if (gid < size) out[gid] = func(a[gid], val);
-// }
-
-// template <typename Func>
-// void ScalarFunc(const CudaArray& a, scalar_t val, CudaArray* out, Func func) {
-//   CudaDims dim = CudaOneDim(out->size);
-//   ScalarFuncKernel<<<dim.grid, dim.block>>>(a.ptr, val, out->ptr, out->size, func);  
-// }
+ 
 ////////////////////////////////////////////////////////////////////////////////
 // Elementwise and scalar operations
 ////////////////////////////////////////////////////////////////////////////////
